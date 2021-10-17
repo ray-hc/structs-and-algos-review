@@ -35,3 +35,26 @@ def dfs(graph, start, target, path, visited = set()):
     return None
 ```
 Got from [here](https://stackabuse.com/depth-first-search-dfs-in-python-theory-and-implementation/).
+
+# BST Validator
+
+```Python
+class Solution(object):  
+  def isValidBST(self, node, min=None, max=None):
+      
+      if not node:      # Validate the end of trees.
+          return True
+
+      if not min == None:
+          if node.val <= min:
+              return False
+
+      if not max == None:
+          if node.val >= max:
+              return False
+
+      leftValid = self.isValidBST(node.left, min, node.val)
+      rightValid = self.isValidBST(node.right, node.val, max)
+
+      return (leftValid and rightValid)
+```
