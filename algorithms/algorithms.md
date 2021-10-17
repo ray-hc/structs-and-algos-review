@@ -36,6 +36,12 @@ def dfs(graph, start, target, path, visited = set()):
 ```
 Got from [here](https://stackabuse.com/depth-first-search-dfs-in-python-theory-and-implementation/).
 
+Uses:
+* Cycle detection (not sure why) (BFS can't do this)
+
+# Dijkstra's Algorithm
+
+
 # BST Validator
 
 ```Python

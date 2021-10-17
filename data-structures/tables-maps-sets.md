@@ -1,3 +1,25 @@
+## Set (Abstract Data Type)
+| Operation   | O-complexity |
+| ----------- | ------------ |
+| Space       | O(n)         |
+| Add(e)      | O(h)         |
+| Contains(e) | O(h)         |
+| isEmpty     | O(1)         |
+| Remove(e)   | O(h)         |
+| Size        | O(1)         |
+Where h is the height of binary tree, if binary tree used for implementation. In Python, set implemented w/ hashtable.
+
+## Map (Abstract Data Type)
+| Operation        | O-complexity |
+| ---------------- | ------------ |
+| ContainsKey(key) | O()         |
+| ContainsVal(val) | O()         |
+| Get(key)         | O()         |
+| isEmpty()        | O()         |
+| keySet()         | O()         |
+| put(key, val)    | O()         |
+| remove(key)      | O()         |
+
 ## Hashtable
 
 **Salting:** multiplying the hash with a random integer so that even if a hacker knew what common passwords were and their corresponding hashes, they couldn't just map them.

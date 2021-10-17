@@ -60,16 +60,37 @@ class SLinkedList:
 Implement as a linked list -- insert at the tail, remove at the head.
 
 ```Python
-class SLinkedList:
+class QueueLnkdLst:
    def __init__(self):
       self.head = None
       self.rear = None
 
-    def add_node(self, node):
+    def enqueue(self, node):
       if (self.head == None):
         self.head = node
         self.rear = node
       else:
         self.rear.next = node
         self.rear = node
+```
+
+Or implement as an array. (This code is untested/confirmed, and unsure if Python list implementation makes necessary.)
+**Conceptually:** Mantain pointers to head/rear of list, and bump accccordingly.
+
+```Python
+class QueueArray:
+   def __init__(self):
+      self.q = [""] * 10            # Make queue with 10 slots.
+      self.head = 0
+      self.rear = 0
+      self.size = 0
+
+    def enqueue(self, item):
+      self.q[rear] = item
+      self.rear += 1
+      self.size += 1
+      if self.rear == len(self.q):         # If we reached end of array, loop back.
+        self.rear = 0
+      if self.rear == self.head and self.size > 0:
+        print("Error, exceeded queue size")
 ```
