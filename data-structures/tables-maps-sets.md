@@ -7,7 +7,34 @@
 | isEmpty     | O(1)         |
 | Remove(e)   | O(h)         |
 | Size        | O(1)         |
-Where h is the height of binary tree, if binary tree used for implementation. In Python, set implemented w/ hashtable.
+
+Where h is the height of binary tree, if binary tree used for implementation. 
+
+### Python Implementation
+
+In Python, set implemented with hashtable.
+
+```Python
+aSet = set()
+
+aSet.add("banana")
+print("Banana in set:", "banana" in aSet)
+
+for x in aSet:
+  print x # iterate over values in set
+
+someItem = aSet.pop() # removes any item from the set.
+aSet.remove("banana") # removes specific item.
+# aSet.discard("banana") does not throw error on missing.
+
+bSet = {"orange"}
+union = aSet.union(bSet) # get union of sets
+intersection = aSet.intersection(bSet)
+
+aaSet = aSet.copy() # duplicate set
+print("Length is", len(set)) # get length
+```
+
 
 ## Map (Abstract Data Type)
 | Operation        | O-complexity |
@@ -34,6 +61,7 @@ Where h is the height of binary tree, if binary tree used for implementation. In
 ### Implementation
 
 #### Hard-coded:
+
 ```Python
 class Hashtable:
     def __init__(self, bucket_size):
@@ -56,8 +84,21 @@ class Hashtable:
         return None
 ```
 
-#### Built-in
-Use a dictionary, implemented w/ hashtable. 
-Can use `for (k, v) in dict.items():` or `for key in dict.keys()`.
-`del dict[key]` to delete.
-`dict.get(key, "value to return if nonexistent")` = `dict[key]`
+#### Python Implementation
+
+Implemented using a hashtable.
+
+```Python
+aDict = dict()
+aDict["a"] = "apple"
+aDict.get("banana", "not there") # get key (or default value)
+
+for key in aDict: # or "for key in newDict.keys():"
+  print(key, aDict[key])
+for (key, value) in aDict.items():
+  print(key, value)
+
+del dict["a"] # delete key/value pair.
+
+print(len(aDict)) # get number of items
+```

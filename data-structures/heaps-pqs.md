@@ -9,13 +9,19 @@
 
 ### Implementation 
 
-#### Python Built-In
+#### Python Implementation
 ```Python
 import heapq
 ...
 heapq.heapify(list)
 smallestElem = heapq.heappush(list, elem) # Add element
 heapq.heappop(list) # Remove element from the heap
+
+def heapsort(iterable):
+    h = []
+    for value in iterable:
+          heappush(h, value)
+    return [heappop(h) for i in range(len(h))]
 ```
 
 #### DIY

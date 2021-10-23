@@ -54,3 +54,5 @@
 
 * "We are all responsible users"
   No such thing as "private" in Python.
+
+* Use 4 spaces per indentation level.
