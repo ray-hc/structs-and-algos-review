@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Stacks and Queues - My Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Stacks and Queues";
+    var mkdocs_page_input_path = "data-structures/stacks-queues.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> My Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Data Structures and Algorithms</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Algorithms</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../algorithms/dynamic-programming/">Dynamic Programming</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../algorithms/graph-algorithms/">Graphs</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../algorithms/search/">Searching</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../algorithms/sort/">Sorting</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../algorithms/tree-algorithms/">Trees</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Data structures</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../classes/">Classes, Inheritance in Python</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../heaps-pqs/">Heaps and Priority Queues</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../lists/">Lists</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Stacks and Queues</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#stacks">Stacks</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#implementation">Implementation</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#pythons-built-in">Python's Built-In</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#diy">DIY</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#queues">Queues</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#implementation_1">Implementation</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#pythons-built-in_1">Python's Built-In</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#diy_1">DIY</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../tables-maps-sets/">Tables, Maps, and Sets</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../trees/">Trees</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Tips and conventions</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tips-and-conventions/python-tips/">Style Points and Helpful Code</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tips-and-conventions/regex/">Regex</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">My Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Data structures &raquo;</li>
+        
+      
+    
+    <li>Stacks and Queues</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="stacks-and-queues">Stacks and Queues</h1>
+<h2 id="stacks">Stacks</h2>
+<p><strong>Last In, First Out</strong></p>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>O-complexity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Push</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td>Pop</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td>Peek</td>
+<td>O(1)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Uses:</strong> Call stack (of functions), depth first search</p>
+<h3 id="implementation">Implementation</h3>
+<h4 id="pythons-built-in">Python's Built-In</h4>
+<pre><code class="language-Python">from collections import deque
+
+stack = deque()
+stack.append('c')
+stack.pop()
+</code></pre>
+<h4 id="diy">DIY</h4>
+<p>Implement as a linked list -- insert and remove at the head.</p>
+<pre><code class="language-Python">class SLinkedList:
+   def __init__(self):
+      self.head = None
+      self.rear = None
+
+    def add_node(self, node):
+      if (self.head == None):
+        self.head = node
+      else:
+        ptr = self.head
+        while self.next != None:
+          ptr = self.next         # Skip to end of list.
+        ptr.next = node
+</code></pre>
+<h2 id="queues">Queues</h2>
+<p><strong>First In, First Out</strong></p>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>O-complexity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Enqueue</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td>Dequeue</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td>Peek</td>
+<td>O(1)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Uses:</strong> Breadth First Search, printers, web servers (replying to requests in order).</p>
+<h3 id="implementation_1">Implementation</h3>
+<h4 id="pythons-built-in_1">Python's Built-In</h4>
+<pre><code class="language-Python">from collections import deque
+
+q = deque()
+q.append('c')
+q.popleft()
+</code></pre>
+<h4 id="diy_1">DIY</h4>
+<p>Implement as a linked list -- insert at the tail, remove at the head.</p>
+<pre><code class="language-Python">class QueueLnkdLst:
+   def __init__(self):
+      self.head = None
+      self.rear = None
+
+    def enqueue(self, node):
+      if (self.head == None):
+        self.head = node
+        self.rear = node
+      else:
+        self.rear.next = node
+        self.rear = node
+</code></pre>
+<p>Can also implement as an array, where you mantain pointers to head/rear of list, and bump accccordingly.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../tables-maps-sets/" class="btn btn-neutral float-right" title="Tables, Maps, and Sets">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../lists/" class="btn btn-neutral" title="Lists"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../lists/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../tables-maps-sets/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
