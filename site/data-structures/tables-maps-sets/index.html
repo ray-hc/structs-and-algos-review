@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Tables, Maps, and Sets - My Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Tables, Maps, and Sets";
+    var mkdocs_page_input_path = "data-structures/tables-maps-sets.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> My Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Data Structures and Algorithms</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Algorithms</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../algorithms/dynamic-programming/">Dynamic Programming</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../algorithms/graph-algorithms/">Graphs</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../algorithms/search/">Searching</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../algorithms/sort/">Sorting</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../algorithms/tree-algorithms/">Trees</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Data structures</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../classes/">Classes, Inheritance in Python</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../heaps-pqs/">Heaps and Priority Queues</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../lists/">Lists</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../stacks-queues/">Stacks and Queues</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Tables, Maps, and Sets</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#set-abstract-data-type">Set (Abstract Data Type)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#python-implementation">Python Implementation</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#map-abstract-data-type">Map (Abstract Data Type)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#hashtable">Hashtable</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#implementation">Implementation</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#hard-coded">Hard-coded:</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#python-implementation_1">Python Implementation</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../trees/">Trees</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Tips and conventions</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tips-and-conventions/python-tips/">Style Points and Helpful Code</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tips-and-conventions/regex/">Regex</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">My Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Data structures &raquo;</li>
+        
+      
+    
+    <li>Tables, Maps, and Sets</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="tables-maps-and-sets">Tables, Maps, and Sets</h1>
+<h2 id="set-abstract-data-type">Set (Abstract Data Type)</h2>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>O-complexity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Space</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>Add(e)</td>
+<td>O(h)</td>
+</tr>
+<tr>
+<td>Contains(e)</td>
+<td>O(h)</td>
+</tr>
+<tr>
+<td>isEmpty</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td>Remove(e)</td>
+<td>O(h)</td>
+</tr>
+<tr>
+<td>Size</td>
+<td>O(1)</td>
+</tr>
+</tbody>
+</table>
+<p>Where h is the height of binary tree, if binary tree used for implementation. </p>
+<h3 id="python-implementation">Python Implementation</h3>
+<p>In Python, set implemented with hashtable.</p>
+<pre><code class="language-Python">aSet = set()
+
+aSet.add(&quot;banana&quot;)
+print(&quot;Banana in set:&quot;, &quot;banana&quot; in aSet)
+
+for x in aSet:
+  print x # iterate over values in set
+
+someItem = aSet.pop() # removes any item from the set.
+aSet.remove(&quot;banana&quot;) # removes specific item.
+# aSet.discard(&quot;banana&quot;) does not throw error on missing.
+
+bSet = {&quot;orange&quot;}
+union = aSet.union(bSet) # get union of sets
+intersection = aSet.intersection(bSet)
+
+aaSet = aSet.copy() # duplicate set
+print(&quot;Length is&quot;, len(set)) # get length
+</code></pre>
+<h2 id="map-abstract-data-type">Map (Abstract Data Type)</h2>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>O-complexity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ContainsKey(key)</td>
+<td>O()</td>
+</tr>
+<tr>
+<td>ContainsVal(val)</td>
+<td>O()</td>
+</tr>
+<tr>
+<td>Get(key)</td>
+<td>O()</td>
+</tr>
+<tr>
+<td>isEmpty()</td>
+<td>O()</td>
+</tr>
+<tr>
+<td>keySet()</td>
+<td>O()</td>
+</tr>
+<tr>
+<td>put(key, val)</td>
+<td>O()</td>
+</tr>
+<tr>
+<td>remove(key)</td>
+<td>O()</td>
+</tr>
+</tbody>
+</table>
+<h2 id="hashtable">Hashtable</h2>
+<p><strong>Salting:</strong> multiplying the hash with a random integer so that even if a hacker knew what common passwords were and their corresponding hashes, they couldn't just map them.</p>
+<p><strong>Open Addressing:</strong> 
+  * Insertion: go to the hash-slot, but keep iterating down until you find an open slot. 
+  * Retrieval: go to the hash-slot, but if it's not there, iterate until you hit a <em>None</em> box.
+  * Deletion: when deleting, fill with a dummy-variable that isn't <em>None</em> that you know means can overwrite if insertion but pretend is full for purpose of retrieval.</p>
+<p><strong>Amortized analysis</strong>: When we get the worst-case runtimes, i.e. because we're expanding the table, this will pay dividends in faster time later that get averaged out. </p>
+<h3 id="implementation">Implementation</h3>
+<h4 id="hard-coded">Hard-coded:</h4>
+<pre><code class="language-Python">class Hashtable:
+    def __init__(self, bucket_size):
+      self.bucket_size = bucket_size
+      self.buckets = [[] for i in range(self.bucket_size)]    # create empty buckets
+
+
+    def save_key_val_pair(self, key, value):
+      hashed_val = hash(key)
+      bIndex = hashed_val % self.bucket_size
+      self.buckets[bIndex].append((key, value))
+
+    def get_value(self, key):
+      hashed_value = hash(key)
+        bIndex = hashed_value % self.bucket_size
+        bucket = self.buckets[bIndex]
+        for key, value in bucket:
+            if key == input_key:
+                return(value)
+        return None
+</code></pre>
+<h4 id="python-implementation_1">Python Implementation</h4>
+<p>Implemented using a hashtable.</p>
+<pre><code class="language-Python">aDict = dict()
+aDict[&quot;a&quot;] = &quot;apple&quot;
+aDict.get(&quot;banana&quot;, &quot;not there&quot;) # get key (or default value)
+
+for key in aDict: # or &quot;for key in newDict.keys():&quot;
+  print(key, aDict[key])
+for (key, value) in aDict.items():
+  print(key, value)
+
+del dict[&quot;a&quot;] # delete key/value pair.
+
+print(len(aDict)) # get number of items
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../trees/" class="btn btn-neutral float-right" title="Trees">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../stacks-queues/" class="btn btn-neutral" title="Stacks and Queues"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../stacks-queues/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../trees/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

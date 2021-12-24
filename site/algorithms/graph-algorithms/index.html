@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Graphs - My Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Graphs";
+    var mkdocs_page_input_path = "algorithms/graph-algorithms.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> My Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Data Structures and Algorithms</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Algorithms</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../dynamic-programming/">Dynamic Programming</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Graphs</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#breadth-first-search">Breadth-First Search</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#depth-first-search">Depth-First Search</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dijkstras-algorithm">Dijkstra's Algorithm</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../search/">Searching</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../sort/">Sorting</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../tree-algorithms/">Trees</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Data structures</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data-structures/classes/">Classes, Inheritance in Python</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data-structures/heaps-pqs/">Heaps and Priority Queues</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data-structures/lists/">Lists</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data-structures/stacks-queues/">Stacks and Queues</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data-structures/tables-maps-sets/">Tables, Maps, and Sets</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data-structures/trees/">Trees</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Tips and conventions</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tips-and-conventions/python-tips/">Style Points and Helpful Code</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tips-and-conventions/regex/">Regex</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">My Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Algorithms &raquo;</li>
+        
+      
+    
+    <li>Graphs</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="graphs">Graphs</h1>
+<h2 id="breadth-first-search">Breadth-First Search</h2>
+<p>Implemented with adj. list format:</p>
+<pre><code class="language-Python">def bfs(visited = set(), graph, node): #function for BFS
+  visited.add(node)
+  queue.append(node)
+
+  while queue:
+    node = queue.pop(0) 
+    for neighbour in graph[node]:
+      if neighbour not in visited:
+        visited.add(neighbour)
+        queue.append(neighbour)
+</code></pre>
+<p>Got from <a href="https://favtutor.com/blogs/breadth-first-search-python">here</a>.</p>
+<p>Uses: cycle detection in unweighted graph, GPS navigation, etc.</p>
+<h2 id="depth-first-search">Depth-First Search</h2>
+<p>Implemented with adj. list format:</p>
+<pre><code class="language-Python">def dfs(graph, start, target, path, visited = set()):
+    path.append(start)
+    visited.add(start) 
+    if start == target:
+        return path
+    for neighbour in graph[start]:
+        if neighbour not in visited:
+            result = dfs(adj_list, neighbour, target, path, visited)
+            if result is not None:
+                return result
+      path.pop() # If we haven't returned by here, the current node is not on path to target.
+    return None
+</code></pre>
+<p>Got from <a href="https://stackabuse.com/depth-first-search-dfs-in-python-theory-and-implementation/">here</a>.</p>
+<p>Uses:</p>
+<ul>
+<li>Cycle detection</li>
+</ul>
+<h2 id="dijkstras-algorithm">Dijkstra's Algorithm</h2>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../search/" class="btn btn-neutral float-right" title="Searching">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../dynamic-programming/" class="btn btn-neutral" title="Dynamic Programming"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../dynamic-programming/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../search/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

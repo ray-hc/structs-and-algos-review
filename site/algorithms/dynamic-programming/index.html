@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Dynamic Programming - My Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Dynamic Programming";
+    var mkdocs_page_input_path = "algorithms/dynamic-programming.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> My Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Data Structures and Algorithms</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Algorithms</span></p>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Dynamic Programming</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#max-subset-sum">Max Subset-Sum</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#candies">Candies</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#longest-common-subsequence">Longest Common Subsequence</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../graph-algorithms/">Graphs</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../search/">Searching</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../sort/">Sorting</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../tree-algorithms/">Trees</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Data structures</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data-structures/classes/">Classes, Inheritance in Python</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data-structures/heaps-pqs/">Heaps and Priority Queues</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data-structures/lists/">Lists</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data-structures/stacks-queues/">Stacks and Queues</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data-structures/tables-maps-sets/">Tables, Maps, and Sets</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../data-structures/trees/">Trees</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Tips and conventions</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tips-and-conventions/python-tips/">Style Points and Helpful Code</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tips-and-conventions/regex/">Regex</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">My Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Algorithms &raquo;</li>
+        
+      
+    
+    <li>Dynamic Programming</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="dynamic-programming">Dynamic Programming</h1>
+<h2 id="max-subset-sum">Max Subset-Sum</h2>
+<p>Given an array of integers, find the subset of non-adjacent elements with the maximum sum. Calculate the sum of that subset.</p>
+<pre><code class="language-python">def maxSubsetSum(arr):
+
+    optSums = [0] * len(arr)
+
+    optSums[0] = max(0, arr[0])
+    optSums[1] = max(0, arr[1])
+
+    for i in range(2, len(arr)):
+        optSums[i] = max(0, arr[i]) + optSums[i-2]
+        if optSums[i] &lt; optSums[i-1]:
+            optSums[i] = optSums[i-1]
+
+    return optSums[-1]
+</code></pre>
+<p><strong>Formula:</strong> element may be negative (thus, never want to include). For each element, if you include, you cannot include previous element. Thus, <code>OPT</code> for element at index <code>i</code> is that element, plus the best up until <code>i-2</code>th element, or the best up until <code>i-1</code>.</p>
+<h2 id="candies">Candies</h2>
+<p>Alice wants to give some candies to the children in her class.  All the children sit in a line and each of them has a rating score.  Alice wants to give at least 1 candy to each child. If two children sit next to each other, then the one with the higher rating must get more candies. Alice wants to minimize the total number of candies she must buy.</p>
+<pre><code class="language-python">def findNextMin(idx, n, arr):
+
+    x = idx
+    while x &lt; n-1 and arr[x] &gt; arr[x+1]:
+        x += 1
+    return x
+
+def candies(n, arr):
+
+    opt = [1] * n
+    idx = 0
+    while idx &lt; n-1:
+        if arr[idx] &gt; arr[idx+1]:
+            nMin = findNextMin(idx, n, arr)
+            for nIdx in range(idx, nMin):
+                opt[nIdx] = max(opt[nIdx], nMin - nIdx + 1)
+            idx = nMin
+        elif arr[idx] &lt; arr[idx+1]:
+            opt[idx+1] = opt[idx]+1
+            idx += 1
+        elif arr[idx] == arr[idx+1]:
+            idx += 1
+    return sum(opt)
+</code></pre>
+<h2 id="longest-common-subsequence">Longest Common Subsequence</h2>
+<pre><code class="language-python">def commonChild(s1, s2):
+
+    opt = [[0]*(len(s1) + 1) for i in range(len(s2) + 1)]
+
+    for idx1 in range(1, len(s1)+1):
+        for idx2 in range(1, len(s2)+1):
+
+            useCurr = 0
+            if s1[idx1-1] == s2[idx2-1]:
+                useCurr = opt[idx1-1][idx2-1] + 1
+
+            opt[idx1][idx2] = max(useCurr, opt[idx1][idx2-1], opt[idx1-1][idx2])
+
+    return opt[-1][-1]
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../graph-algorithms/" class="btn btn-neutral float-right" title="Graphs">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../.." class="btn btn-neutral" title="Data Structures and Algorithms"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../.." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../graph-algorithms/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
