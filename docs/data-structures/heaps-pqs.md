@@ -1,4 +1,6 @@
-## Heap
+# Heaps and Priority Queues
+
+## The Heap
 
 | Operation       | O-complexity |
 | --------------- | ------------ |
@@ -9,7 +11,8 @@
 
 ### Implementation 
 
-#### Python Implementation
+#### Python's Built-In:
+
 ```Python
 import heapq
 ...
@@ -25,6 +28,7 @@ def heapsort(iterable):
 ```
 
 #### DIY
+
 ```Python
 def min_heapify(A,k):
     l = left(k)
@@ -54,12 +58,14 @@ A = [3,9,2,1,4,5]
 build_min_heap(A)
 print(A)
 ```
+
 Got from [here](https://favtutor.com/blogs/heap-in-python).
 
 ## Priority Queue
 
 Implemented using max-heap.
 
-Uses:
+**Uses:**
+
 * Looking for the top k items in a list
 * Simulations, scheduling

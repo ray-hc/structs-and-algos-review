@@ -1,4 +1,4 @@
-
+# Dynamic Programming
 
 ## Max Subset-Sum
 
@@ -20,7 +20,7 @@ def maxSubsetSum(arr):
     return optSums[-1]
 ```
 
-*Formula:* element may be negative (thus, never want to include). For each element, if you include, you cannot include previous element. Thus, `OPT` for element at index `i` is that element, plus the best up until `i-2`th element, or the best up until `i-1`.
+**Formula:** element may be negative (thus, never want to include). For each element, if you include, you cannot include previous element. Thus, `OPT` for element at index `i` is that element, plus the best up until `i-2`th element, or the best up until `i-1`.
 
 ## Candies
 
@@ -28,12 +28,14 @@ Alice wants to give some candies to the children in her class.  All the children
 
 ```python
 def findNextMin(idx, n, arr):
+
     x = idx
     while x < n-1 and arr[x] > arr[x+1]:
         x += 1
     return x
 
 def candies(n, arr):
+
     opt = [1] * n
     idx = 0
     while idx < n-1:
@@ -52,9 +54,9 @@ def candies(n, arr):
 
 ## Longest Common Subsequence
 
-```Python
+```python
 def commonChild(s1, s2):
-    # Write your code here
+
     opt = [[0]*(len(s1) + 1) for i in range(len(s2) + 1)]
     
     for idx1 in range(1, len(s1)+1):
@@ -67,4 +69,4 @@ def commonChild(s1, s2):
             opt[idx1][idx2] = max(useCurr, opt[idx1][idx2-1], opt[idx1-1][idx2])
                 
     return opt[-1][-1]
-  ```
+```

@@ -1,81 +1,85 @@
 # Style Points and Helpful Code
 
-* Unpacking
+## Unpacking
 
-  ```Python
-  for i, item in enumerate(some_list):
-    # do something.
-    # enumerate --> returns count of where you are + item.
-  ```
-* Swapping
+```python
+for i, item in enumerate(some_list):
+  # do something.
+  # enumerate --> returns count of where you are + item.
+```
 
-  ```Python
-  a, b = b, a
-  ```
-* Create a length-N list of the same thing
+## Swapping
 
-  ```Python
-  four_nones = [None] * 4
-  ```
+```python
+a, b = b, a
+```
+
+## Create a length-N list of the same thing
+
+```python
+four_nones = [None] * 4
+```
 
   * If an object is mutable -- this will copy 4 references to list.
 
-* Create a length-N list of lists 
+## Create a length-N list of lists 
 
-  ```Python
-  four_lists = [[] for __ in range(4)]
-  ```
+```python
+four_lists = [[] for __ in range(4)]
+```
 
-* Check style
+## Check style
 
-  ```bash
-  pip install pycodestyle
-  pycodestyle program.py
-  ```
+```bash
+pip install pycodestyle
+pycodestyle program.py
+```
 
-* `None` evaluates to `False` (Falsey).
+## `None` evaluates to `False` (Falsey).
 
   * Can use `is None` if need to distinguish between `False`, `None`.
   * Else, `if element` or `if not element` is fine.
 
-* Remove from list
+## Remove from list
 
-  ```Python
-  while i in a:
-    a.remove(i)
-  ```
+```python
+while i in a:
+  a.remove(i)
+```
 
-* List Comprehension
+## List Comprehension
 
-  ```Python
-  # Creates a new list object of filtered vals.
-  filtered_values = [value for value in sequence if value != x]
-  #
-  ```
+```python
+# Creates a new list object of filtered vals.
+filtered_values = [value for value in sequence if value != x]
+#
+```
 
-* Opening Files
+## Opening Files
 
-  ```Python
-  with open('file.txt') as f:
-      for line in f:
-          print(line)
-  ```
+```python
+with open('file.txt') as f:
+    for line in f:
+        print(line)
+```
+
   Always handles exceptions, and closes.
 
-* "We are all responsible users"
+## "We are all responsible users"
   No such thing as "private" in Python.
 
-* Use 4 spaces per indentation level.
+## Use 4 spaces per indentation level.
 
-* F Strings
+## F Strings
 
-  ```Python
-  def greet_user(name):
-  print(f”Hi {name}”) 
-  ```
+```python
+def greet_user(name):
+print(f”Hi {name}”) 
+```
 
-* How to Do Random Variables
-```Python
+## How to Do Random Variables
+
+```python
 import random
 random.random() # returns a float between 0 to 1
 random.randint(1, 6) # returns an int between 1 to 6 

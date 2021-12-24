@@ -1,4 +1,4 @@
-# Classes, Inheritance
+# Classes, Inheritance in Python
 
 ```Python
 class Mammal:
