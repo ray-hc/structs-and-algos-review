@@ -28,7 +28,18 @@ Ideal for stacks and queues.
 
 Implement as a linked list -- insert, remove at the head.
 
+#### Python
+
+```Python
+from collections import deque
+ 
+stack = deque()
+stack.append('c')
+stack.pop()
+```
+
 #### Implementation
+
 ```Python
 class SLinkedList:
    def __init__(self):
@@ -55,6 +66,16 @@ class SLinkedList:
 
 **First In, First Out**
 **Uses:** Breadth First Search, printers, web servers (replying to requests in order).
+
+#### Python
+
+```Python
+from collections import deque
+
+q = deque()
+q.append('c')
+q.popleft()
+```
 
 #### Implementation
 Implement as a linked list -- insert at the tail, remove at the head.
